@@ -14,8 +14,7 @@ pipeline {
       }
    }
    post {
-     always {
-       // One or more steps need to be included within each condition's block.
+
 
          always {
                 emailext(
@@ -24,7 +23,7 @@ pipeline {
                      to: '3095329264@qq.com',
                 )
          }
-     }
+
    }
 
 
