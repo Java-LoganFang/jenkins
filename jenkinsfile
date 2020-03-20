@@ -1,0 +1,16 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('拉取代码') {
+         steps {
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://gitee.com/java_learning2/jenkins.git']]])
+         }
+      }
+    stage('bianyi') {
+         steps {
+            sh label: '', script: 'mvn clean package'
+         }
+      }
+   }
+}
